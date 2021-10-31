@@ -41,9 +41,15 @@ public class TestDemoqa {
         $("#react-select-4-input").setValue("Agra").pressEnter();
         $("#submit").click();
 
-        $(".table-responsive").shouldHave(text("1Name 2LastName"), text("qwe@qas.ru"),
-                text("Female"), text("1234567891"), text("12 January,2020"),
-                text("Physics"), text("Music, Sports"), text("facemy.jpg"), text("SomeAddress"),
+        $(".table-responsive").shouldHave(text("1Name 2LastName"),
+                text("qwe@qas.ru"),
+                text("Female"),
+                text("1234567891"),
+                text("12 January,2020"),
+                text("Physics"),
+                text("Music, Sports"),
+                text("facemy.jpg"),
+                text("SomeAddress"),
                 text("Uttar Pradesh Agra"));
 
     }
