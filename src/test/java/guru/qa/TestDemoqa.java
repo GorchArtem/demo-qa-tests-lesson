@@ -21,10 +21,15 @@ public class TestDemoqa {
 
     @Test
     void fillFormTest() {
-        open("https://demoqa.com/automation-practice-form");
+        String linkURL = "https://demoqa.com/automation-practice-form";
+        String firstName = "1Name";
+        String lastName = "2LastName";
 
-        $("#firstName").setValue("1Name");
-        $("#lastName").setValue("2LastName");
+
+        open(linkURL);
+
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
         $("#userEmail").setValue("qwe@qas.ru");
         $$(".custom-radio").get(1).click();
         $("#userNumber").setValue("1234567891");
@@ -41,7 +46,7 @@ public class TestDemoqa {
         $("#react-select-4-input").setValue("Agra").pressEnter();
         $("#submit").click();
 
-        $(".table-responsive").shouldHave(text("1Name 2LastName"),
+        $(".table-responsive").shouldHave(text(firstName + " " + lastName),
                 text("qwe@qas.ru"),
                 text("Female"),
                 text("1234567891"),
