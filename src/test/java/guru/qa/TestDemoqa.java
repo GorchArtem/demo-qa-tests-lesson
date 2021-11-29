@@ -1,17 +1,11 @@
 package guru.qa;
-import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class TestDemoqa {
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.startMaximized = true;
-    }
+public class TestDemoqa extends TestBase {
     Faker faker = new Faker();
 
     String firstName = faker.name().firstName(),
