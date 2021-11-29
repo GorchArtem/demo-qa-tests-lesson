@@ -1,5 +1,6 @@
 package guru.qa;
 import com.codeborne.selenide.Configuration;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
@@ -11,44 +12,57 @@ public class TestDemoqa {
     static void beforeAll() {
         Configuration.startMaximized = true;
     }
+    Faker faker = new Faker();
+
+    String firstName = faker.name().firstName(),
+            lastName = faker.name().lastName(),
+            email = faker.internet().emailAddress(),
+            mobile = faker.number().digits(10),
+            dayOfBirth = "10",
+            monthOfBirth = "May",
+            yearOfBirth = "1988",
+            subject1 = "Chemistry",
+
+            picture = "facemy.jpg",
+            currentAddress = faker.address().fullAddress(),
+            state = "Uttar Pradesh",
+            city = "Merrut";
 
     @Test
     void fillFormTest() {
         String linkURL = "https://demoqa.com/automation-practice-form";
-        String firstName = "1Name";
-        String lastName = "2LastName";
 
 
         open(linkURL);
 
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
-        $("#userEmail").setValue("qwe@qas.ru");
+        $("#userEmail").setValue(email);
         $$(".custom-radio").get(1).click();
-        $("#userNumber").setValue("1234567891");
+        $("#userNumber").setValue(mobile);
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("January");
-        $(".react-datepicker__year-select").selectOption("2020");
-        $$(".react-datepicker__day").find(text("12")).click();
-        $("#subjectsInput").setValue("Physics").pressEnter();
+        $(".react-datepicker__month-select").selectOption(monthOfBirth);
+        $(".react-datepicker__year-select").selectOption(yearOfBirth);
+        $$(".react-datepicker__day").find(text(dayOfBirth)).click();
+        $("#subjectsInput").setValue(subject1).pressEnter();
         $(byText("Music")).click();
         $(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("facemy.jpg");
-        $("#currentAddress").setValue("SomeAddress");
-        $("#react-select-3-input").setValue("Uttar Pradesh").pressEnter();
-        $("#react-select-4-input").setValue("Agra").pressEnter();
+        $("#uploadPicture").uploadFromClasspath(picture);
+        $("#currentAddress").setValue(currentAddress);
+        $("#react-select-3-input").setValue(state).pressEnter();
+        $("#react-select-4-input").setValue(city).pressEnter();
         $("#submit").click();
 
         $(".table-responsive").shouldHave(text(firstName + " " + lastName),
-                text("qwe@qas.ru"),
+                text(email),
                 text("Female"),
-                text("1234567891"),
-                text("12 January,2020"),
-                text("Physics"),
+                text(mobile),
+                text(dayOfBirth + " " + monthOfBirth + "," + yearOfBirth),
+                text(subject1),
                 text("Music, Sports"),
-                text("facemy.jpg"),
-                text("SomeAddress"),
-                text("Uttar Pradesh Agra"));
+                text(picture),
+                text(currentAddress),
+                text(state + " " + city));
 
     }
 }
