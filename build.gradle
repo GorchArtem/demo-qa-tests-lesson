@@ -47,4 +47,8 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+
+    test {
+        systemProperties System.getProperties()
+    }
 }

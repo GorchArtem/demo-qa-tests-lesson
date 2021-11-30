@@ -17,6 +17,7 @@ public class TestDemoqa extends TestBase {
             yearOfBirth = "1988",
             subject1 = "Chemistry",
 
+
             picture = "facemy.jpg",
             currentAddress = faker.address().fullAddress(),
             state = "Uttar Pradesh",
