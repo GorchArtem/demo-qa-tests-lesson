@@ -3,5 +3,3 @@
 build
 gradlew.bat
 gradlew
-
-resources/config/credentials.properties

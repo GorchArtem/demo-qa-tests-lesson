@@ -37,6 +37,11 @@ dependencies {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
+task owner_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags "owner"
+    }
+}
 
 tasks.withType(Test) {
     useJUnitPlatform()
