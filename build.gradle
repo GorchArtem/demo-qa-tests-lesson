@@ -46,6 +46,7 @@ task properties_tests(type: Test) {
 tasks.withType(Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
+
     testLogging {
         lifecycle {
 //            events "started", "failed"
