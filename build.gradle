@@ -37,15 +37,15 @@ dependencies {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
-task owner_tests(type: Test) {
+task properties_tests(type: Test) {
     useJUnitPlatform {
-        includeTags "owner"
+        includeTags "properties"
     }
 }
 
 tasks.withType(Test) {
     useJUnitPlatform()
-
+    systemProperties(System.getProperties())
     testLogging {
         lifecycle {
 //            events "started", "failed"
@@ -54,7 +54,4 @@ tasks.withType(Test) {
         }
     }
 
-    test {
-        systemProperties System.getProperties()
-    }
 }

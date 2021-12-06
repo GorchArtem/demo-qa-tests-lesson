@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static java.lang.String.format;
 
-@Tag("Owner")
+@Tag("properties")
 public class OwnerTests {
     public static CredentialsConfig credentials = ConfigFactory.create(CredentialsConfig.class);
 
