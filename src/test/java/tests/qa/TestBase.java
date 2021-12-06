@@ -25,6 +25,8 @@ public class TestBase {
 
         Configuration.remote = format("https://%s:%s@%s", login, password, url);
         //gradle clean properties_tests -Durl='selenoid.autotests.cloud/wd/hub/'
+        String message = format("I login to %s as %s with password %s", url, login, password);
+        System.out.println(message);
 
 
 
