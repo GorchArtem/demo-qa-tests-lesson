@@ -38,6 +38,9 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
         
+        //Это тест вывода, убрать потом
+        Configuration.browserCapabilities.setCapability("resolutionHeight",1280);
+        Configuration.browserCapabilities.setCapability("resolutionWidth",800);
         System.out.println(Configuration.browserCapabilities.getCapability("resolutionHeight"));
         System.out.println(Configuration.browserCapabilities.getCapability("resolutionWidth"));
     }
