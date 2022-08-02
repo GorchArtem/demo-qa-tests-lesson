@@ -30,11 +30,16 @@ public class TestBase {
 
 
 
+        Map<String, ?> configMap = new HashMap<String, Object>(){{
+            put("enableVNC", true);
+            put("enableVideo", true);
+            put("resolutionHeight", 800);
+            put("resolutionWidth", 1200);
+        }};
 
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
+        DesiredCapabilities capabilities = new DesiredCapabilities(configMap);
+        //capabilities.setCapability("enableVNC", true);
+        //capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
         
@@ -42,8 +47,8 @@ public class TestBase {
         String rWidthName = "resolutionWidth";
         String rHeightName = "resolutionHeight";
         
-        Configuration.browserCapabilities.setCapability(rWidthName,1200);
-        Configuration.browserCapabilities.setCapability(rHeightName,800);
+        //Configuration.browserCapabilities.setCapability(rWidthName,1200);
+        //Configuration.browserCapabilities.setCapability(rHeightName,800);
         System.out.println(rWidthName + ": " + Configuration.browserCapabilities.getCapability(rWidthName));
         System.out.println(rHeightName + ": " + Configuration.browserCapabilities.getCapability(rHeightName));
     }
