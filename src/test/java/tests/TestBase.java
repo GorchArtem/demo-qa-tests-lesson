@@ -37,6 +37,9 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
+        
+        System.out.println(Configuration.browserCapabilities.getCapability("resolutionHeight"));
+        System.out.println(Configuration.browserCapabilities.getCapability("resolutionWidth"));
     }
     @AfterEach
     public void tearDown() {
