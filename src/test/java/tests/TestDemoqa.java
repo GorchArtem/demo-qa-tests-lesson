@@ -48,12 +48,6 @@ public class TestDemoqa extends TestBase {
         $("#currentAddress").setValue(currentAddress);
         $("#react-select-3-input").setValue(state).pressEnter();
         $("#react-select-4-input").setValue(city).pressEnter();
-        $("#currentAddress").click();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         $("#submit").click();
 
         $(".table-responsive").shouldHave(text(firstName + " " + lastName),
