@@ -29,7 +29,9 @@ public class TestDemoqa extends TestBase {
 
 
         open(linkURL);
-
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
+        
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(email);
