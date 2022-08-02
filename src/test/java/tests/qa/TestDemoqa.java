@@ -46,6 +46,7 @@ public class TestDemoqa extends TestBase {
         $("#currentAddress").setValue(currentAddress);
         $("#react-select-3-input").setValue(state).pressEnter();
         $("#react-select-4-input").setValue(city).pressEnter();
+        $("#currentAddress").click();
         $("#submit").click();
 
         $(".table-responsive").shouldHave(text(firstName + " " + lastName),
