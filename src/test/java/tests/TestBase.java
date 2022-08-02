@@ -38,11 +38,14 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
         
-        //Это тест вывода, убрать потом
-        Configuration.browserCapabilities.setCapability("resolutionHeight",1280);
-        Configuration.browserCapabilities.setCapability("resolutionWidth",800);
-        System.out.println(Configuration.browserCapabilities.getCapability("resolutionHeight"));
-        System.out.println(Configuration.browserCapabilities.getCapability("resolutionWidth"));
+        //Это тест вывода разрешения, убрать потом
+        String rWidthName = "resolutionWidth";
+        String rHeightName = "resolutionHeight";
+        
+        Configuration.browserCapabilities.setCapability(rWidthName,1200);
+        Configuration.browserCapabilities.setCapability(rHeightName,800);
+        System.out.println(rWidthName + ": " + Configuration.browserCapabilities.getCapability(rWidthName));
+        System.out.println(rHeightName + ": " + Configuration.browserCapabilities.getCapability(rHeightName));
     }
     @AfterEach
     public void tearDown() {
